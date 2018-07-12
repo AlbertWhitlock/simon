@@ -21,35 +21,70 @@
 h1 {
     font-size: 48px;
     text-align: center;
+    grid-row: 1;
+    grid-column: 1 / span4;
 }
 
 h3 {
     text-align: center;
+    grid-row: 2;
+    grid-column: 2;
 }
 
-.red {
+textarea {
+    grid-row: 2;
+    grid-column: 3; 
+}
+
+#red {
     width:  100px;
     height: 100px;
-    background: maroon;
+    background: red;
+    grid-row: 3;
+    grid-column: 3;
 }
 
-.blue {
+#blue {
     width:  100px;
     height: 100px;
     background: darkblue;
     animation-name: glowBlue;
     animation-duration: 1s;
+    grid-row: 4;
+    grid-column: 1;
 }
 
-.green {
+#green {
     width:  100px;
     height: 100px;
-    background: lightgreen;
+    background: green;
+    grid-row: 4;
+    grid-column: 5;
 }
 
-.yellow {
+#yellow {
     width:  100px;
     height: 100px;
-    background: lightyellow;
+    background: yellow;
+    filter: 50%;
+    grid-row: 5;
+    grid-column: 3;
+}
+
+#playButton {
+    grid-row: 6;
+    grid-column: 1;
+}
+
+#submitButton {
+    grid-row: 6;
+    grid-column: 5;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    padding: 10px;
 }
 

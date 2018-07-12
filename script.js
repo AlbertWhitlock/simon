@@ -49,35 +49,42 @@ function playGame(evt) {
     printResults();
 }
 
+
 function resetArrays() {
     responseArray = [];
     solutionArray = [];
 }
 
+
 function submitAnswer(evt) {
     var numCorrectAnswers = 0;
     var numIncorrectAnswers = 0;
-    for (index = 0; index < solutionArray.length; index++) {
-        if (solutionArray[index] == responseArray[index])
-            numCorrectAnswers++;
-        else
-            numIncorrectAnswers ++;
-    }
-    // See if all answers were correct and notify the player
-    if (numIncorrectAnswers > 0) {
-        alert("Sorry. That was incorrect. You missed on round " + currentRound + ". We will start from round 1 again.");
-        currentRound = 1;
-    }
-    else {
-        if (currentRound == 5) {
-            alert("5 wins in a row!! You are a MASTER!!!!!");
+
+    if (solutionArray.length > 0) { // Ensure user hits "Play Game" button before submitting answer
+        for (index = 0; index < solutionArray.length; index++) {
+            if (solutionArray[index] == responseArray[index])
+                numCorrectAnswers++;
+            else
+                numIncorrectAnswers ++;
+        }
+        // See if all answers were correct and notify the player
+        if (numIncorrectAnswers > 0) {
+            alert("Sorry. That was incorrect. You missed on round " + currentRound + ". We will start from round 1 again.");
             currentRound = 1;
         }
         else {
-            alert("WINNER in round " + currentRound);
-            currentRound++;
+            if (currentRound == 5) {
+                alert("5 wins in a row!! You are a MASTER!!!!!");
+                currentRound = 1;
+            }
+            else {
+                alert("WINNER in round " + currentRound);
+                currentRound++;
+            }
         }
     }
+    else //NO answers available
+        alert("You must first play a game");
 }
 
 
@@ -107,9 +114,6 @@ function startGame(round) {
 }
 
 
-
-
-
 function checkNumMoves(currentRound) {
     if (currentRound == 1)
         return 3;
@@ -123,15 +127,7 @@ function checkNumMoves(currentRound) {
         return 7;
 }
 
-function youWin() {
-    alert("YOU WIN!!!!!");
-}
-
 
 function printResults() {
     console.log("Solution array is " + solutionArray);
-    console.log("Response array has " + responseArray.length + " elements");
-    for (let j = 0; j < responseArray.length; j++) {
-        console.log("Element " + j + " is " + responseArray[j]);
-    }
 }
