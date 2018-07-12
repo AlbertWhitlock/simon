@@ -11,17 +11,18 @@ var numMoves = 0;
 var solutionArray = [];
 var responseArray = [];
 
+
 // ADD ACTION LISTENERS
-blueButton.addEventListener('click', buttonClicked);
-redButton.addEventListener('click', buttonClicked);
-greenButton.addEventListener('click', buttonClicked);
-yellowButton.addEventListener('click', buttonClicked);
+blueButton.addEventListener('click', colorButtonClicked);
+redButton.addEventListener('click', colorButtonClicked);
+greenButton.addEventListener('click', colorButtonClicked);
+yellowButton.addEventListener('click', colorButtonClicked);
 playGameButton.addEventListener('click', playGame);
 submitButton.addEventListener('click', submitAnswer);
 
 
 
-function buttonClicked(evt) {
+function colorButtonClicked(evt) {
     var source = evt.srcElement;
     if (source.id == "blue") {
         console.log("Blue button pressed");
@@ -57,25 +58,23 @@ function submitAnswer(evt) {
     var numCorrectAnswers = 0;
     var numIncorrectAnswers = 0;
     for (index = 0; index < solutionArray.length; index++) {
-        if (solutionArray[index] == responseArray[index]) {
+        if (solutionArray[index] == responseArray[index])
             numCorrectAnswers++;
-        }
-        else {
+        else
             numIncorrectAnswers ++;
-        }
     }
-
+    // See if all answers were correct and notify the player
     if (numIncorrectAnswers > 0) {
-        alert("LOSER!!!");
+        alert("Sorry. That was incorrect. You missed on round " + currentRound + ". We will start from round 1 again.");
         currentRound = 1;
     }
     else {
         if (currentRound == 5) {
-            alert("MASTER WINNER");
+            alert("5 wins in a row!! You are a MASTER!!!!!");
             currentRound = 1;
         }
         else {
-            alert("WINNER!!!!!");
+            alert("WINNER in round " + currentRound);
             currentRound++;
         }
     }
@@ -84,8 +83,8 @@ function submitAnswer(evt) {
 
 
 function startGame(round) {
-    console.log("Current round is: " + round);
-    document.getElementById('roundNumber').innerHTML = "Hard coded";
+    console.log("***********************Current round is: " + round);
+    document.getElementById('roundNumber').innerHTML = round;
     numMoves = checkNumMoves(round);
 
     for (let i = 1; i <= numMoves; i++) {
