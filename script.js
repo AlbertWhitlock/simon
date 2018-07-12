@@ -1,7 +1,7 @@
 // DEFINE VARIABLES
-var blueButton =   document.getElementById('blue');
-var greenButton =  document.getElementById('green');
-var redButton =    document.getElementById('red');
+var blueButton = document.getElementById('blue');
+var greenButton = document.getElementById('green');
+var redButton = document.getElementById('red');
 var yellowButton = document.getElementById('yellow');
 var playGameButton = document.getElementById('playButton');
 var submitButton = document.getElementById('submitButton');
@@ -70,8 +70,14 @@ function submitAnswer(evt) {
         currentRound = 1;
     }
     else {
-        alert("WINNER!!!!!");
-        currentRound++;
+        if (currentRound == 5) {
+            alert("MASTER WINNER");
+            currentRound = 1;
+        }
+        else {
+            alert("WINNER!!!!!");
+            currentRound++;
+        }
     }
 }
 
@@ -79,14 +85,14 @@ function submitAnswer(evt) {
 
 function startGame(round) {
     console.log("Current round is: " + round);
-    document.getElementById("roundNumber").innerHTML = round;
+    document.getElementById('roundNumber').innerHTML = "Hard coded";
     numMoves = checkNumMoves(round);
 
     for (let i = 1; i <= numMoves; i++) {
         var arrayIndex = i - 1;
         var randomButton = buttonArray[Math.floor(Math.random()*buttonArray.length)];
         if (randomButton === redButton) {
-            //blueButton.backgroundColor = 'white';
+            blueButton.backgroundColor = 'white';
             solutionArray[arrayIndex] = 'red';
         }
         else if (randomButton == blueButton) {
@@ -116,9 +122,6 @@ function checkNumMoves(currentRound) {
         return 6;
     else if (currentRound == 5)
         return 7;
-    else if (currentRound == 6)
-        youWin();
-    
 }
 
 function youWin() {
