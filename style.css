@@ -1,0 +1,51 @@
+@keyframes glowRed {
+    from {background-color: maroon}
+    to {background-color: red}
+}
+
+@keyframes glowBlue {
+    from {background-color: darkblue}
+    to {background-color: blue}
+}
+
+@keyframes glowYellow {
+    from {background-color: lightyellow}
+    to {background-color: yellow}
+}
+
+@keyframes glowGreen {
+    from {background-color: lightgreen}
+    to {background-color: green}
+}
+
+h1 {
+    font-size: 48px;
+    text-align: center;
+}
+
+.red {
+    width:  100px;
+    height: 100px;
+    background: maroon;
+}
+
+.blue {
+    width:  100px;
+    height: 100px;
+    background: darkblue;
+    animation-name: glowBlue;
+    animation-duration: 1s;
+}
+
+.green {
+    width:  100px;
+    height: 100px;
+    background: lightgreen;
+}
+
+.yellow {
+    width:  100px;
+    height: 100px;
+    background: lightyellow;
+}
+
