@@ -1,49 +1,85 @@
-
+// DEFINE VARIABLES
 var blueButton =   document.getElementById('blue');
 var greenButton =  document.getElementById('green');
 var redButton =    document.getElementById('red');
 var yellowButton = document.getElementById('yellow');
 var playGameButton = document.getElementById('playButton');
+var submitButton = document.getElementById('submitButton');
 var buttonArray = [greenButton, redButton, blueButton, yellowButton];
 var currentRound = 1;
 var numMoves = 0;
 var solutionArray = [];
+var responseArray = [];
 
+// ADD ACTION LISTENERS
 blueButton.addEventListener('click', buttonClicked);
 redButton.addEventListener('click', buttonClicked);
 greenButton.addEventListener('click', buttonClicked);
 yellowButton.addEventListener('click', buttonClicked);
-playGameButton.addEventListener('click', handlePlayGameEvent);
+playGameButton.addEventListener('click', playGame);
+submitButton.addEventListener('click', submitAnswer);
+
 
 
 function buttonClicked(evt) {
     var source = evt.srcElement;
     if (source.id == "blue") {
         console.log("Blue button pressed");
-        solutionArray.push(source.id);
+        responseArray.push(source.id);
     }
     else if (source.id == "red") {
         console.log("Red button pressed");
-        solutionArray.push(source.id);
+        responseArray.push(source.id);
     }
     else if (source.id == "green") {
         console.log("Green button pressed");
-        solutionArray.push(source.id);
+        responseArray.push(source.id);
     }
     else if (source.id == "yellow") {
         console.log("Yellow button pressed");
-        solutionArray.push(source.id);
+        responseArray.push(source.id);
     }
 }
 
 
-function handlePlayGameEvent(evt) {
-    console.log("Button was pressed!!");
+function playGame(evt) {
+    resetArrays();
+    startGame(currentRound);
+    printResults();
+}
+
+function resetArrays() {
+    responseArray = [];
+    solutionArray = [];
+}
+
+function submitAnswer(evt) {
+    var numCorrectAnswers = 0;
+    var numIncorrectAnswers = 0;
+    for (index = 0; index < solutionArray.length; index++) {
+        if (solutionArray[index] == responseArray[index]) {
+            numCorrectAnswers++;
+        }
+        else {
+            numIncorrectAnswers ++;
+        }
+    }
+
+    if (numIncorrectAnswers > 0) {
+        alert("LOSER!!!");
+        currentRound = 1;
+    }
+    else {
+        alert("WINNER!!!!!");
+        currentRound++;
+    }
 }
 
 
 
-function go(round) {
+function startGame(round) {
+    console.log("Current round is: " + round);
+    document.getElementById("roundNumber").innerHTML = round;
     numMoves = checkNumMoves(round);
 
     for (let i = 1; i <= numMoves; i++) {
@@ -63,11 +99,6 @@ function go(round) {
             solutionArray[arrayIndex] = 'green';
         }
     }
-    // PROMPT USER TO PLAY
-    // RECORD THEIR ANSWER
-    // COMPARE TO answerArray
-    // PROMPT USER IF THEY WON OR NOT (update roundNumber)
-
 }
 
 
@@ -95,9 +126,10 @@ function youWin() {
 }
 
 
-go(5);
-console.log("Solution array is " + solutionArray);
-console.log("Solution array has " + solutionArray.length + " elements");
-for (let j = 0; j < solutionArray.length; j++) {
-    console.log("Elelment " + j + " is " + solutionArray[j]);
+function printResults() {
+    console.log("Solution array is " + solutionArray);
+    console.log("Response array has " + responseArray.length + " elements");
+    for (let j = 0; j < responseArray.length; j++) {
+        console.log("Element " + j + " is " + responseArray[j]);
+    }
 }
