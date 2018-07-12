@@ -1,26 +1,47 @@
 
-var greenButton = document.getElementsByClassName('green');
-var redButton = document.getElementsByClassName('red');
-// var blueButton = document.getElementsByClassName('blue');
-var blueButton = document.getElementById('blue');
-var yellowButton = document.getElementsByClassName('yellow');
-var playGameButton = document.getElementById('#playButton');
+var blueButton =   document.getElementById('blue');
+var greenButton =  document.getElementById('green');
+var redButton =    document.getElementById('red');
+var yellowButton = document.getElementById('yellow');
+var playGameButton = document.getElementById('playButton');
+var buttonArray = [greenButton, redButton, blueButton, yellowButton];
 var currentRound = 1;
 var numMoves = 0;
-var buttonArray = [greenButton, redButton, blueButton, yellowButton];
-var answerArray = [];
+var solutionArray = [];
+
+blueButton.addEventListener('click', buttonClicked);
+redButton.addEventListener('click', buttonClicked);
+greenButton.addEventListener('click', buttonClicked);
+yellowButton.addEventListener('click', buttonClicked);
+playGameButton.addEventListener('click', handlePlayGameEvent);
 
 
-blueButton.addEventListener('click', blueButtonClicked);
-
-function blueButtonClicked() {
-    console.log("Blue button pressed");
+function buttonClicked(evt) {
+    var source = evt.srcElement;
+    if (source.id == "blue") {
+        console.log("Blue button pressed");
+        solutionArray.push(source.id);
+    }
+    else if (source.id == "red") {
+        console.log("Red button pressed");
+        solutionArray.push(source.id);
+    }
+    else if (source.id == "green") {
+        console.log("Green button pressed");
+        solutionArray.push(source.id);
+    }
+    else if (source.id == "yellow") {
+        console.log("Yellow button pressed");
+        solutionArray.push(source.id);
+    }
 }
-// TODO:  playGameButton.addEventListener('click', handlePlayGameEvent);
+
 
 function handlePlayGameEvent(evt) {
     console.log("Button was pressed!!");
 }
+
+
 
 function go(round) {
     numMoves = checkNumMoves(round);
@@ -29,26 +50,18 @@ function go(round) {
         var arrayIndex = i - 1;
         var randomButton = buttonArray[Math.floor(Math.random()*buttonArray.length)];
         if (randomButton === redButton) {
-            console.log("Button chosen was red");
             //blueButton.backgroundColor = 'white';
-            answerArray[arrayIndex] = 'red';
+            solutionArray[arrayIndex] = 'red';
         }
         else if (randomButton == blueButton) {
-            console.log("Button chosen was blue");
-            answerArray[arrayIndex] = 'blue';
+            solutionArray[arrayIndex] = 'blue';
         }
         else if (randomButton == yellowButton) {
-            console.log("Button chosen was yellow");
-            answerArray[arrayIndex] = 'yellow';
+            solutionArray[arrayIndex] = 'yellow';
         }
         else if (randomButton == greenButton) {
-            console.log("Button chosen was green");
-            answerArray[arrayIndex] = 'green';
+            solutionArray[arrayIndex] = 'green';
         }
-
-        //console.log('Random color ' + i + ' is: ' + randomButton);
-   //     answerArray.push(randomButton);
-        //console.log('answerArray length is: ' + answerArray.length);
     }
     // PROMPT USER TO PLAY
     // RECORD THEIR ANSWER
@@ -83,8 +96,8 @@ function youWin() {
 
 
 go(5);
-console.log("Answer array is " + answerArray);
-console.log("Answer array has " + answerArray.length + " elements");
-for (let j = 0; j < answerArray.length; j++) {
-    console.log("Elelment " + j + " is " + answerArray[j]);
+console.log("Solution array is " + solutionArray);
+console.log("Solution array has " + solutionArray.length + " elements");
+for (let j = 0; j < solutionArray.length; j++) {
+    console.log("Elelment " + j + " is " + solutionArray[j]);
 }
