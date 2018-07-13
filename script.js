@@ -97,12 +97,17 @@ function startGame(round) {
     for (let i = 1; i <= numMoves; i++) {
         var arrayIndex = i - 1;
         var randomButton = buttonArray[Math.floor(Math.random()*buttonArray.length)];
-        if (randomButton === redButton) {
-            blueButton.backgroundColor = 'white';
+        if (randomButton == redButton) {
             solutionArray[arrayIndex] = 'red';
         }
         else if (randomButton == blueButton) {
             solutionArray[arrayIndex] = 'blue';
+            var colorChange = setTimeout(function() {
+                document.getElementById("blue").style.background="white"
+            }, 1000);
+            var colorChangeBack = setTimeout(function() {
+                document.getElementById("blue").style.backgroundColor="blue"
+            }, 1000);
         }
         else if (randomButton == yellowButton) {
             solutionArray[arrayIndex] = 'yellow';
@@ -112,6 +117,8 @@ function startGame(round) {
         }
     }
 }
+
+
 
 
 function checkNumMoves(currentRound) {
