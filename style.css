@@ -20,7 +20,7 @@ textarea {
 #red {
     width:  100px;
     height: 100px;
-    background: red;
+    background: #990000;
     grid-row: 3;
     grid-column: 3;
 }
@@ -28,7 +28,7 @@ textarea {
 #blue {
     width:  100px;
     height: 100px;
-    background: blue;
+    background: #000099;
     grid-row: 4;
     grid-column: 2;
 }
@@ -36,7 +36,7 @@ textarea {
 #green {
     width:  100px;
     height: 100px;
-    background: green;
+    background: #009900;
     grid-row: 4;
     grid-column: 4;
 }
@@ -44,7 +44,7 @@ textarea {
 #yellow {
     width:  100px;
     height: 100px;
-    background: yellow;
+    background: #999900;
     grid-row: 5;
     grid-column: 3;
 }
