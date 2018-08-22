@@ -1,75 +1,73 @@
 h1 {
-    font-size: 48px;
-    text-align: center;
-    grid-row: 1;
-    grid-column: 1 / span 5;
+  font-size: 48px;
+  text-align: center;
+  grid-row: 1;
+  grid-column: 1 / span 5;
 }
 
 h2 {
-    text-align: center;
-    grid-row: 2;
-    grid-column: 2;
+  text-align: center;
+  grid-row: 2;
+  grid-column: 2;
 }
 
 textarea {
-    grid-row: 2;
-    grid-column: 3;
-    height: 50px; 
+  grid-row: 2;
+  grid-column: 3;
+  height: 40px;
 }
 
 #red {
-    width:  100px;
-    height: 100px;
-    background: #990000;
-    grid-row: 3;
-    grid-column: 3;
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 0, 0, 0.2);
+  grid-row: 3;
+  grid-column: 3;
 }
 
 #blue {
-    width:  100px;
-    height: 100px;
-    background: #000099;
-    grid-row: 4;
-    grid-column: 2;
+  width: 100px;
+  height: 100px;
+  background: rgba(0, 0, 255, 0.2);
+  grid-row: 4;
+  grid-column: 2;
 }
 
 #green {
-    width:  100px;
-    height: 100px;
-    background: #009900;
-    grid-row: 4;
-    grid-column: 4;
+  width: 100px;
+  height: 100px;
+  background: rgba(0, 255, 0, 0.2);
+  grid-row: 4;
+  grid-column: 4;
 }
 
 #yellow {
-    width:  100px;
-    height: 100px;
-    background: #999900;
-    grid-row: 5;
-    grid-column: 3;
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 0, 0.2);
+  grid-row: 5;
+  grid-column: 3;
 }
 
-
 #playButton {
-    grid-row: 6;
-    grid-column: 1;
-    background-color: lightgray;
+  grid-row: 6;
+  grid-column: 1;
+  background-color: lightgray;
 }
 
 #submitButton {
-    grid-row: 6;
-    grid-column: 5;
-    background-color: lightgray;
+  grid-row: 6;
+  grid-column: 5;
+  background-color: lightgray;
 }
 
 .wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-    padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  padding: 10px;
 }
 
 body {
-    background-color: gray;
+  background-color: gray;
 }
-
